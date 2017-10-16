@@ -1,0 +1,122 @@
+    1  cd Desktop/
+    2  mkdir problemsets
+    3  ls
+    4  cd problemsets/
+    5  ls
+    6  pwd
+   36  curl -O https://github.com/srobb1/pfb2017/blob/master/files/sequences.nt.fa
+   44  less sequences.nt.fa
+   47  wc -l sequences.nt.fa 
+   49  head sequences.nt.fa
+   50  tail -n 3 sequences.nt.fa
+   57  grep ">" sequences.nt.fa | wc -l 
+   61  touch sequences.nt.fa
+   63  grep ">" sequences.nt.fa | wc -l 
+   64  mv sequences.nt.fa cancer_genes.fasta
+   69  curl -O https://raw.githubusercontent.com/srobb1/pfb2017/master/files/cuffdiff.txt
+   70  less -S cuffdiff.txt 
+   71  man sort
+   73  less -S cuffdiff.txt 
+   74  grep 'log2(fold_change)' cuffdiff.txt 
+   75  sort -k 10 cuffdiff.txt > cuffdiff_sorted_log2.txt
+   76  less -S cuffdiff_sorted_log2.txt 
+   78  cut -f 10 cuffdiff.txt 
+   79  cut -f 10 cuffdiff_sorted_log2.txt 
+   81  sort -k 10 cuffdiff.txt | head -n 100  > cuffdiff_sorted_log2_100.txt
+   82  less -S cuffdiff_sorted_log2_100.txt 
+   83  sort -k 10 cuffdiff.txt | head -n 100 | cut -f 3   > cuffdiff_sorted_log2_100.txt
+   84  sort -k 10 cuffdiff.txt | head -n 100  > cuffdiff_sorted_log2_100.txt
+   85  sort -k 10 cuffdiff.txt | head -n 100 | cut -f 3   > cuffdiff_sorted_log2_100_genes.txt
+   86  less -S cuffdiff_sorted_log2_100_genes.txt 
+   90  mv cuffdiff_sorted_log2_100_genes.txt differentially.expressed.genes.txt
+   94  git init /Users/admin/Desktop/problemsets
+   95  git remote add
+   96  git add *
+   97  git commit -m 'pfb training morning one files'
+  104  git push
+  105  git clone https://github.com/bauchetg/pfb2017.git
+  106  ls
+  107  cd ..
+  108  git clone https://github.com/bauchetg/pfb2017.git
+  109  ls
+  110  mv problemsets/c* pfb2017/
+  111  mv problemsets/differentially.expressed.genes.txt pfb2017/
+  112  mv problemsets/sequences.nt.fa~ pfb2017/
+  113  ls
+  114  cd pfb2017/
+  115  ls
+  116  git ls
+  117  ls
+  118  mkdir day1
+  119  mv c* day1/
+  120  mv differentially.expressed.genes.txt day1/
+  121  ls
+  122  less README.md 
+  123  ls
+  124  git init day1/
+  125  git remote add
+  126  git add *
+  127  git commit -m ' day1 morning files'
+  128  git push
+  129  ls -al ~/.ssh
+  130  ~/ .ssh/config
+  131  ~/ .ssh/config
+  132  ~/ .ssh/
+  133  cd .ssh/
+  134  cd ~/ .ssh/
+  135  ls
+  136  pwd
+  137  locate .ssh
+  138  eval "$(ssh-agent -s)"
+  139  ssh-add -K ~/Desktop/github_rsa.dms 
+  140  pwd
+  141  cd Desktop/pfb2017/
+  142  ls
+  143  git status
+  144  cd day1/
+  145  git status
+  146  git add cancer_genes.fasta 
+  147  git commit -m 'adding cancer_genes.fasta'
+  148  git push
+  149  pwd
+  150  ls
+  151  git push /Users/admin/Desktop/pfb2017/day1/cancer_genes.fasta
+  152  git config --global push.default simple
+  153  git push /Users/admin/Desktop/pfb2017/day1/cancer_genes.fasta
+  154  git status
+  155  cd ..
+  156  ls
+  157  git add day1/cancer_genes.fasta 
+  158  git commit -m 'adding cancer_genes.fasta'
+  159  git push
+  160  emacs mysequences.txt
+  161  git add mysequences.txt 
+  162  git commit -m 'commit fasta cancer gene'
+  163  git push
+  164  pwd
+  165  mkdir fastas
+  171  cp cancer_genes.fasta fastas/
+  175  rm cancer_genes.fasta 
+  181  git status
+  183  git push origin master
+  186  cd .git/
+  187  ls
+  188  less config 
+  189  less COMMIT_EDITMSG 
+  194  rm sequences.nt.fa~ 
+  195  git add
+  196  git push origin master
+  200  git status
+  202  git rm day1/cancer_genes.fasta
+  203  git push
+  205  git status
+  206  git commit -m 'remove file'
+  207  git push
+  209  git rm sequences.nt.fa~
+  210  git commit -m 'remove sequences.nt.fa~'
+  211  git push
+  212  git status
+  213  git commit -m 'remove sequences.nt.fa~'
+  214  git push
+  215  pwd
+  216  history > unixBasics.history.txt
