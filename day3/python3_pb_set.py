@@ -100,3 +100,22 @@ frag_list.sort()
 
 ## -10- sort by fragment lenght
 len_sort = sorted(frag_list, key=len) 
+
+## -11- alter list
+list = ['a', 'bb', 'ccc']
+list_copy = list
+list_copy.append('dddd')
+#>>> list_copy
+#['a', 'bb', 'ccc']
+#>>> list_copy.append('dddd')
+#>>> list_copy
+#['a', 'bb', 'ccc', 'dddd']
+
+list = ['a', 'bb', 'ccc']
+list_copy = list.copy()
+list_copy.append('dddd')
+#>>> list_copy
+#['a', 'bb', 'ccc']
+#>>> list_copy.append('dddd')
+#>>> list_copy
+#['a', 'bb', 'ccc', 'dddd']
