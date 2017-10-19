@@ -26,37 +26,36 @@
 #curl -O https://raw.githubusercontent.com/srobb1/pfb2017/master/files/Python_05.fasta
 
 ## open files
-fas_read = open ("Python_05.fasta", "r")
-fas_write = open ("Python_05_out.fasta", "w")
-#contents = fas_read.read()
+#fas_read = open ("Python_05.fasta", "r")
+#fas_write = open ("Python_05_out.fasta", "w")
+##contents = fas_read.read() (doesnt work)
 
-## building dictionary
-#dna_seq = {}
-line_all = ''
-for line in fas_read:
-    if line.startswith ('>'):
-        line_head = line.rstrip()
-        if line_all:
-            # rev
-            line_rev = line_all[::-1]
-            print(line_rev)
-            line_all = ''
-        print(line_head)
-    else:
-        line = line.rstrip()
-        # complement
-        line_comp1 = line.replace('T','a')
-        line_comp2 = line_comp1.replace('G','c')
-        line_comp3 = line_comp2.replace('C', 'g')
-        line_comp4 = line_comp3.replace('A','t')
-        line_comp_fi = line_comp4.upper()
-        line_all += line_comp_fi
+#line_all = ''
+#for line in fas_read:
+#    if line.startswith ('>'):
+#        line_head = line.rstrip()
+#        if line_all:
+#            ## rev
+#            line_rev = line_all[::-1]
+#            print(line_rev)
+#            line_all = ''
+#        print(line_head)
+#    else:
+#        line = line.rstrip()
+#        ## complement
+#        line_comp1 = line.replace('T','a')
+#        line_comp2 = line_comp1.replace('G','c')
+#        line_comp3 = line_comp2.replace('C', 'g')
+#        line_comp4 = line_comp3.replace('A','t')
+#        line_comp_fi = line_comp4.upper()
+#        line_all += line_comp_fi
+##output for the last seq (seq 4) after the loop
 line_rev = line_all[::-1]
 print(line_rev)
-#line_all = ''
-#print(line_all)
 
 ## -4- FASTQ
+
+
 
 
 
