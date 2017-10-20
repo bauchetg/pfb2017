@@ -33,11 +33,32 @@ for seq_id, seq_str in seq.items():
     print(seq_dict)
 
 
-## -2- multifasta 
+## -2- multifasta into triplets
 ## curl -O https://raw.githubusercontent.com/srobb1/pfb2017/master/files/Python_08.fasta
 ## expected output:
 ## seq1-frame-1-codons
 ## CAT GCT TGA GTC'
 
+fas_read = open ("Python_08_sub.fasta", "r")
+fas_write = open ("Python_08.codons-frame-1.nt", "w")
 
-
+line_head = ''
+line_all = ''
+seq = {}
+for line in fas_read:
+    if line.startswith ('>'):
+        if line_all:
+            #print(line_head)                                                                     
+            #print(line_all)                                                                              
+            line_all = ''
+            line_head = line.rstrip() # keep the next sequence header                                     
+            codons = re.findall(r"(.{3})", line_all)
+            print(codons)
+            seq[line_head] = line_all
+            #print(seq)                                                                                   
+            #break                                                                                        
+        else:
+            line_head = line.rstrip() # keep the first  header (only once)                                
+    else:
+        line_all += line.rstrip() # generate seq content                                                  
+        seq[line_head] = line_all
