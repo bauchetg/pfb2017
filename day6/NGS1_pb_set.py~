@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import numpy
+import numpy as np
 ## -1- count FASTQ file seq
 
 ## cur -O https://raw.githubusercontent.com/srobb1/pfb2017/master/files/pfb.fastq
@@ -7,30 +7,26 @@ import numpy
 fastq_read = open ("pfb.fastq", "r")
 
 line_num_tot = ''
-line_count = ''
+line_cat = ''
 seq_mn = ''
+line_tot = 0 
 
 for line_num, line in enumerate(fastq_read):
-	# line_num is teh index
-	# line is the seq string
-	# line_num_tot gets line number 
+	line_tot += 1
 	line_num_tot = line_num % 4
-	#print(line_num_tot)
 	if line_num_tot == 1:
-		# strip \n
 		line = line.rstrip()
-		#get lenght of each seq
-		seq_len = len(line)
-		print(seq_len)
-		# use list comprehnsion to turn str into list of ints (or  alt sol.: #seq_ls_nb = map(ord(seq_ls)))
-		seq_ls_nb = [ord(nuc) for nuc in line]
-		#print(seq_ls_nb)
-		#get the mean of each seq list
-		seq_mn = sum(seq_ls_nb))/seq_len 
-		print(sum(seq_ls_nb))
-		print('{:.0%}'.format(seq_mn))
-		# get std dev using numpy 
-		seq_stdev = numpy.std(seq_ls_nb)
-		print('{:.0%}'.format(seq_stdev))
-#print(line_num_tot)
-#print(line)
+		line_cat += line	
+#get lenght of seq
+seq_len = len(line_cat)
+
+#list comprehension: turn str in list of int (or  alt sol.: #seq_ls_nb = map(ord(seq_ls)))
+seq_ls_nb = [ord(nuc) for nuc in line_cat]
+seq_mn = sum(seq_ls_nb)/seq_len
+# get std dev (numpy)
+seq_stdev = np.std(seq_ls_nb)
+
+print("total seq length:", seq_len)
+print("average read length is", int(seq_len/(line_tot/4)))
+print("Average quality score is:", '{:.1f}'.format(seq_mn))
+print("Standard deviation is:", '{:.1f}'.format(seq_stdev))
